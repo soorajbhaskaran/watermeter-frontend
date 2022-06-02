@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-const Home=()=>{
+const Home=(props)=>{
     const [screen, setScreen] = useState(0);
+    useEffect(()=>{
+     
+      console.log(localStorage.getItem("dataToken").toString());
+    },[])
     return (
         <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
         <h1 className="text-4xl font-Poppins font-medium">

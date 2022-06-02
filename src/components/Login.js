@@ -1,38 +1,43 @@
 import React from 'react';
 import axios from 'axios';
 import { useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
-const Login = () => {
+const Login = (props) => {
 
 const [consumer,setConsumer]=useState("")
 const [password,setPassword]=useState("")
 const [loading, setLoading] = useState(false);
 const [isError, setIsError] = useState(false);
-const [data, setData] = useState(null);
-  
+const [resData, setData] = useState("");
+const navigate=useNavigate();
 const handleSubmit = () => {
   setLoading(true);
   setIsError(false);
   const data = {
-    consumer: consumer,
+    consumerNumber: consumer,
     password:password
   }
-  axios.post('https://localhost:5000/api/user/login', data).then(res => {
+  axios.post('http://65.0.75.156/api/user/login/', data).then(res => {
     setData(res.data);
     setConsumer('');
     setPassword('');
     setLoading(false);
+    localStorage.setItem("dataToken",res.data.token);
+    navigate('/home');
   }).catch(err => {
     setLoading(false);
     setIsError(true);
+    console.log(err);
   });
 }
+
 
     return (
         <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
         <h1 className="text-5xl">Consumer Login</h1>
         <div className="mt-14">
-          <form className="w-96 font-Poppins flex flex-col items-center gap-y-5" >
+          <form className="w-96 font-Poppins flex flex-col items-center gap-y-5"  >
             <input
             value={consumer}
               type="text"
@@ -61,9 +66,8 @@ const handleSubmit = () => {
               onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? 'Loading...' : 'Submit'}
+          {loading ? 'Loading...' : 'Login'}
             
-              Login
             </button>
           </form>
         </div>
