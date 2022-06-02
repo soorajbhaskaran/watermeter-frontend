@@ -32,7 +32,7 @@ const handleSubmit = () => {
         <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
         <h1 className="text-5xl">Consumer Login</h1>
         <div className="mt-14">
-          <form className="w-96 font-Poppins flex flex-col items-center gap-y-5" onSubmit={this.handleSubmit.bind(this)}>
+          <form className="w-96 font-Poppins flex flex-col items-center gap-y-5" >
             <input
             value={consumer}
               type="text"
@@ -58,7 +58,11 @@ const handleSubmit = () => {
             <button
               type="submit"
               className="rounded-full bg-black text-white font-semibold py-3 w-56"
-            >
+              onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? 'Loading...' : 'Submit'}
+            
               Login
             </button>
           </form>
