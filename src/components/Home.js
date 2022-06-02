@@ -4,8 +4,10 @@ import { useState } from 'react';
 const Home=(props)=>{
     const [screen, setScreen] = useState(0);
     const [token,setToken] = useState();
+    const [payment, setPayment] = useState(false);
     const [price,setPrice] = useState(0);
     const [username,setUsername] = useState("");
+    const [lastupdate,setLastupdate] = useState("");
     const [water,setWater] = useState(0);
     const [monthlyPrice,setMonthlyPrice] = useState(0);
     useEffect(()=>{
@@ -18,44 +20,66 @@ const Home=(props)=>{
       if(token)
       {
 
-        axios.get('http://65.0.75.156/api/user/getmybill',{
-          headers:{
-            'Authorization': "Bearers "+token
-          }
-        }).then((res)=>{
-          if(res.data.bill.status=="unpaid")
-          {
-            setPrice(res.data.bill.consumedPrice);
-          }
-        }).catch((err)=>{
-          console.log(err);
-        });
+        axios
+          .get("http://65.0.18.91/api/user/getmybill", {
+            headers: {
+              Authorization: "Bearers " + token,
+            },
+          })
+          .then((res) => {
+            if (res.data.bill.status === "unpaid") {
+              setPrice(res.data.bill.consumedPrice);
+              console.log(res.data.bill.consumedPrice);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
 
-        axios.get('http://65.0.75.156/api/user/mydata',{
-          headers:{
-            'Authorization' : "Bearers "+token
-          }
-        }).then((res)=>{
-         console.log(res);
-         setWater(res.data.currentWaterConsumption);
-         setMonthlyPrice(res.data.currentMonthlyPrice);
-        }).catch((err)=>{
-          console.log(err);
-        })
+        axios
+          .get("http://65.0.18.91/api/user/mydata", {
+            headers: {
+              Authorization: "Bearers " + token,
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            setWater(res.data.currentWaterConsumption);
+            setMonthlyPrice(res.data.currentMonthlyPrice);
+            setLastupdate(res.data.updatedAt);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
 
       }
      
     },[token]);
 
+    const handleSubmit = () => {
+      setPayment(true);
+      axios.post("http://65.0.18.91/api/user/paybill", {
+        headers: {
+          Authorization: "Bearers " + token,
+        },
+      }).then((res) => {
+        console.log(res.data);
+        setPayment(false);
+        setPrice(0);
+  }).catch((err) => {
+    console.log(err);
+  });
+}
+
     return (
-        <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
+      <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
         <h1 className="text-4xl font-Poppins font-medium">
           Welcome {username}
         </h1>
 
         <div className="w-full mt-10 p-10 bg-gray-300 rounded">
           <div className="font-Poppins flex justify-center text-lg gap-x-5">
-            <button
+            <button type='submit'
               className={`rounded-full border-black font-semibold py-3 px-2 w-56 ${
                 screen === 0 ? "bg-white" : "border"
               }`}
@@ -85,11 +109,15 @@ const Home=(props)=>{
                 </h2>
 
                 <h3 className="text-5xl mt-5 font-medium">
-                  <span className="font-sans">₹</span>{price}
+                  <span className="font-sans">₹</span>
+                  {price}
                 </h3>
 
-                <button className="rounded-full mt-10 bg-black text-white text-lg font-bold py-3 w-56">
-                  Pay Now
+                <button
+                  className="rounded-full mt-10 bg-black text-white text-lg font-bold py-3 w-56"
+                  onClick={handleSubmit}
+                >
+                  {payment ? "Paying..." : "Pay Now"}
                 </button>
               </div>
             ) : (
@@ -102,7 +130,7 @@ const Home=(props)=>{
                   Your current water consumption for the Month
                 </h2>
                 <h2 className="text-xl">
-                  (Last updated on 12:00 pm IST, 12/05/22)
+                  ({lastupdate})
                 </h2>
 
                 <h3 className="text-5xl mt-3 font-medium">{water}L</h3>
@@ -110,7 +138,8 @@ const Home=(props)=>{
                 <h2 className="text-xl mt-10">Which translates to</h2>
 
                 <h3 className="text-5xl mt-3 font-medium">
-                  <span className="font-sans">₹</span>{monthlyPrice}
+                  <span className="font-sans">₹</span>
+                  {monthlyPrice}
                 </h3>
               </div>
             ) : (

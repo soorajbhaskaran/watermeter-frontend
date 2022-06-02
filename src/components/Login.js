@@ -18,7 +18,7 @@ const handleSubmit = () => {
     consumerNumber: consumer,
     password:password
   }
-  axios.post('http://65.0.75.156/api/user/login/', data).then(res => {
+  axios.post('http://65.0.18.91/api/user/login', data).then(res => {
     setData(res.data);
     setConsumer('');
     setPassword('');
