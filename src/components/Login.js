@@ -24,6 +24,7 @@ const handleSubmit = () => {
     setPassword('');
     setLoading(false);
     localStorage.setItem("dataToken",res.data.token);
+    localStorage.setItem("dataUser",res.data.user.name);
     navigate('/home');
   }).catch(err => {
     setLoading(false);
