@@ -10,6 +10,7 @@ const AdminHome = (props) => {
     //State variable
     const [consumerData,setConsumerData]=useState([]);
     const [token,setToken]=useState();
+    const [search,setSearch]=useState(0);
 
     useEffect(()=>{
         setToken(localStorage.getItem("dataToken"));
@@ -41,6 +42,18 @@ const AdminHome = (props) => {
         }
        
       },[token]);
+
+      const searchSingle=()=>{
+        const data={consumer:search}
+        console.log(data.consumer)
+        axios.post(url+'/munci/getSingleConsumer',data).then(res=>{
+            setConsumerData(res.data.result);
+            console.log(consumerData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+      }
    
 
     return(<div>
@@ -48,8 +61,10 @@ const AdminHome = (props) => {
 
         <div class="flex items-center justify-center mt-20">
         <div class="flex border-2 rounded-full border-gray-400 px-3">
-            <input type="text" class="px-5 py-1 w-80" placeholder="Search..."/>
-            <button class="flex items-center justify-center px-4">
+            <input type="number" class="px-5 py-1 w-80" placeholder="Search..."
+            onChange={(event)=>{
+                setSearch(event.target.value);}}/>
+            <button class="flex items-center justify-center px-4" type='button' onClick={searchSingle}>
                 <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24">
                     <path
