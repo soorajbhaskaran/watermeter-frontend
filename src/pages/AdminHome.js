@@ -20,30 +20,8 @@ const AdminHome = (props) => {
         if(token)
         {
          const data={
-            "role": "admin"
+            role: "admin"
          }
-         setConsumerData([
-            {
-                "id": 1,
-                "currentWaterConsumption": 0,
-                "currentMonthlyPrice": "22.04",
-                "currentMeterReading": 45,
-                "fk_consumerId": 1814562,
-                "priceId": 1,
-                "createdAt": "2022-06-03T00:40:01.000Z",
-                "updatedAt": "2022-06-03T02:12:16.000Z"
-            },
-            {
-                "id": 2,
-                "currentWaterConsumption": 2,
-                "currentMonthlyPrice": "22.04",
-                "currentMeterReading": 50,
-                "fk_consumerId": 9874562,
-                "priceId": 2,
-                "createdAt": "2022-06-03T05:47:15.000Z",
-                "updatedAt": "2022-06-03T07:40:02.000Z"
-            }
-        ]);
           axios
             .get(url+"/munci/getAllConsumer", data,{
               headers: {
@@ -117,7 +95,7 @@ const AdminHome = (props) => {
                 </thead>
                
                     {consumerData.map(each=>(
-                     <Tile id={each['id']} consumerId={each['fk_consumerId']}  
+                     <Tile key={each['id']}id={each['id']} consumerId={each['fk_consumerId']}  
                      currentConsumption={each['currentWaterConsumption']} reading={each['currentMonthlyPrice']}
                      currentPrice={each['currentMeterReading']} updatedAt={each['updatedAt']}/>
                     ))}
