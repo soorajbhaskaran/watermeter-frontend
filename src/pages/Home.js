@@ -1,15 +1,22 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-const Home=(props)=>{
+import Header from '../components/Header';
+import { useNavigate } from 'react-router';
+import url from '../axios/url';
+
+const Home=()=>{
     const [screen, setScreen] = useState(0);
-    const [token,setToken] = useState();
+    const [token,setToken] = useState("");
     const [payment, setPayment] = useState(false);
     const [price,setPrice] = useState(0);
     const [username,setUsername] = useState("");
     const [lastupdate,setLastupdate] = useState("");
     const [water,setWater] = useState(0);
     const [monthlyPrice,setMonthlyPrice] = useState(0);
+    const navigate=useNavigate();
+
+
     useEffect(()=>{
      setToken(localStorage.getItem("dataToken"));
      setUsername(localStorage.getItem("dataUser"));
@@ -21,7 +28,7 @@ const Home=(props)=>{
       {
 
         axios
-          .get("http://65.0.18.91/api/user/getmybill", {
+          .get(url+"/user/getmybill", {
             headers: {
               Authorization: "Bearers " + token,
             },
@@ -37,7 +44,7 @@ const Home=(props)=>{
           });
 
         axios
-          .get("http://65.0.18.91/api/user/mydata", {
+          .get(url+"/user/mydata", {
             headers: {
               Authorization: "Bearers " + token,
             },
@@ -56,22 +63,37 @@ const Home=(props)=>{
      
     },[token]);
 
-    const handleSubmit = () => {
+    const handlePayment = () => {
       setPayment(true);
-      axios.post("http://65.0.18.91/api/user/paybill", {
+      console.log(token);
+      axios.post(url+"/user/paybill", {
         headers: {
-          Authorization: "Bearers " + token,
-        },
+          Authorization : `Bearer ${token}`
+        }
       }).then((res) => {
         console.log(res.data);
+        alert("Payment Updated")
         setPayment(false);
         setPrice(0);
   }).catch((err) => {
     console.log(err);
+    setPayment(false);
   });
 }
 
-    return (
+const signOut=()=>{
+  axios.get(url+"/user/logout",{ headers: {
+    Authorization: "Bearers " + token,
+  },}).then((res) => {
+    navigate('/login');
+    alert("You have successfully logged out");
+}).catch((err) => {
+  console.log(err)
+})
+};
+   return (
+    <div>
+      <Header item1="Home" item2="Contact" item3="Previous Bill" item4="Sign Out" item4Click={signOut}/>
       <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
         <h1 className="text-4xl font-Poppins font-medium">
           Welcome {username}
@@ -80,7 +102,7 @@ const Home=(props)=>{
         <div className="w-full mt-10 p-10 bg-gray-300 rounded">
           <div className="font-Poppins flex justify-center text-lg gap-x-5">
             <button type='submit'
-              className={`rounded-full border-black font-semibold py-3 px-2 w-56 ${
+              className={`rounded-full border-black font-semibold py-1 px-1 w-56 ${
                 screen === 0 ? "bg-white" : "border"
               }`}
               onClick={() => {
@@ -115,7 +137,8 @@ const Home=(props)=>{
 
                 <button
                   className="rounded-full mt-10 bg-black text-white text-lg font-bold py-3 w-56"
-                  onClick={handleSubmit}
+                  onClick={handlePayment}
+                  type="button"
                 >
                   {payment ? "Paying..." : "Pay Now"}
                 </button>
@@ -147,6 +170,7 @@ const Home=(props)=>{
             )}
           </div>
         </div>
+      </div>
       </div>
     );
 }

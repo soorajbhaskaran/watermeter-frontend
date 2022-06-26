@@ -1,15 +1,13 @@
-import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import { useState} from 'react';
 
-import Login from './components/Login';
-import AdminLogin from './components/admin/AdminLogin';
-import Home from './components/Home';
-import AdminDash from './components/admin/AdminDash';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import AdminLogin from "./pages/AdminLogin";
+import AdminHome from "./pages/AdminHome";
 
 function App() {
 
@@ -21,7 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dash" element={<AdminDash />} />
+          <Route path="/admin-home" element={<AdminHome />} />
         </Routes>
       </div>
     </Router>
