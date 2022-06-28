@@ -60,14 +60,18 @@ const handleSubmit = () => {
         <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-center">
           <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-             കേരള വാട്ടർ അതോറിറ്റി നിങ്ങളെ സ്വാഗതം ചെയ്യുന്നു..
+              കേരള വാട്ടർ അതോറിറ്റി നിങ്ങളെ സ്വാഗതം ചെയ്യുന്നു..
             </h1>
             <p class="text-white">
-             കേരള വാട്ടർ അതോറിറ്റി സ്ഥാപിതമായ ഒരു സ്വയംഭരണ അതോറിറ്റിയാണ് ജലവിതരണത്തിന്റെ വികസനത്തിനും നിയന്ത്രണത്തിനും കൂടാതെ ഇന്ത്യയിലെ കേരള സംസ്ഥാനത്തിലെ മലിനജല ശേഖരണവും നിർമാർജനവും.
+              ഗുണനിലവാരമുള്ള ശുദ്ധജലം നൽകാൻ ഞങ്ങൾ പ്രതിജ്ഞാബദ്ധരാണ് ശുദ്ധജല
+              ഉത്പാദനം, വിതരണം, മലിന ജല ശേഖരണം, സംസ്കരണം എന്നിവയുടെ വികസനത്തിനും
+              നിയന്ത്രണത്തിനും വേണ്ടി 1984 ലെ കേരള വാട്ടർ ആൻഡ് വേസ്റ്റ് വാട്ടർ
+              ഓർഡിനൻസ് പ്രകാരം 1984 ഏപ്രിൽ 1 ന് കേരള വാട്ടർ അതോറിറ്റി
+              സ്ഥാപിതമായി.
             </p>
             <div class="flex justify-center py-10">
               <button class="inline-flex text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600  border-0 py-2 px-10 focus:outline-none hover:bg-red-600 rounded-full text-lg">
-                Contact Us
+                ബന്ധപെടുക!
               </button>
             </div>
           </div>
@@ -80,7 +84,7 @@ const handleSubmit = () => {
                   <div class="mt-4">
                     <div>
                       <label class="block" for="email">
-                        Consumer Number
+                        ലോഗിൻ ഐ. ഡി
                       </label>
                       <input
                         type="text"
@@ -95,10 +99,10 @@ const handleSubmit = () => {
                       />
                     </div>
                     <div class="mt-4">
-                      <label class="block">Password</label>
+                      <label class="block">പാസ്സ്‌വേർഡ്</label>
                       <input
                         type="password"
-                        placeholder="Password"
+                        placeholder="പാസ്സ്‌വേർഡ്"
                         value={password}
                         class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                         required
@@ -115,7 +119,7 @@ const handleSubmit = () => {
                         onClick={handleSubmit}
                         disabled={loading}
                       >
-                        {loading ? "Loading..." : "Login"}
+                        {loading ? "ലോഡിങ്..." : "ലോഗിൻ"}
                       </button>
                       {/* <a href="#" class="text-sm text-gray-600 hover:underline">
                         Forgot password?

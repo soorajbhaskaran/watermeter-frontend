@@ -56,7 +56,7 @@ const PreviousBill = (props) => {
         item2=""
         item3=""
         item3Click=""
-        item4="Sign Out"
+        item4="സൈൻ ഔട്ട്"
         item4Click={signOut}
         waterauthority="കേരള വാട്ടർ അതോറിറ്റി"
       />
@@ -72,25 +72,25 @@ const PreviousBill = (props) => {
                       scope="col"
                       class="text-base font-medium text-gray-900 px-6 py-4 text-left"
                     >
-                      S.No
+                      ക്ര. നമ്പർ
                     </th>
                     <th
                       scope="col"
                       class="text-base font-medium text-gray-900 px-6 py-4 text-left"
                     >
-                      Month/Year
+                      മാസം/വർഷം
                     </th>
                     <th
                       scope="col"
                       class="text-base font-medium text-gray-900 px-6 py-4 text-left"
                     >
-                      Total Cost(&#8377;)
+                      തുക (&#8377;)
                     </th>
                     <th
                       scope="col"
                       class="text-base font-medium text-gray-900 px-6 py-4 text-left"
                     >
-                      Payment Status
+                      സ്റ്റാറ്റസ്
                     </th>
                   </tr>
                 </thead>

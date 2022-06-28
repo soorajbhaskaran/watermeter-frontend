@@ -17,20 +17,16 @@ const Login = (props) => {
   return (
     <div>
       <Header
-        item1={language ? "ബന്ധപ്പെടുക" : "Contact"}
-        item1_id = "contact"
+        item1=""
+        item1_id=""
         item2=""
-        item3={language ? "Switch Language" : "ഭാഷ മാറ്റുക "}
+        item3=""
         item4=""
         item3Click={changeLanguage}
-        waterauthority={
-          language ? "കേരള വാട്ടർ അതോറിറ്റി" : "Kerala Water Authority"
-        }
+        waterauthority="കേരള വാട്ടർ അതോറിറ്റി" 
       />
       <LoginPage
-        logText={
-          language ? "അക്കൗണ്ടിൽ ലോഗിൻ ചെയ്യുക!" : "Login in into your account"
-        }
+        logText= "അക്കൗണ്ടിൽ ലോഗിൻ ചെയ്യുക!" 
         page="/home"
         language={language}
       />

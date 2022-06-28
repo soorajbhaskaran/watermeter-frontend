@@ -63,12 +63,12 @@ const AddCustomer = () => {
   return (
     <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
       <Header
-        item1="Home"
-        item2="Add Customer"
+        item1="ഹോം"
+        item2="പുതിയ ഉപഭോക്താവ് "
         item2Click={navigateCustomer}
-        item3="Update Price"
+        item3="തുക പുതുക്കുക"
         item3Click={navigatePrice}
-        item4="Sign Out"
+        item4="സൈൻ ഔട്ട്"
         item4Click={signOut}
         waterauthority="കേരള വാട്ടർ അതോറിറ്റി"
       />
@@ -82,7 +82,7 @@ const AddCustomer = () => {
                   for="exampleInputEmail1"
                   class="form-label inline-block mb-2 text-gray-700"
                 >
-                  Name
+                  പേര്
                 </label>
                 <input
                   required
@@ -104,7 +104,7 @@ const AddCustomer = () => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Name"
+                  placeholder="പേര് "
                   value={name}
                   onChange={(event) => {
                     setName(event.target.value);
@@ -116,7 +116,7 @@ const AddCustomer = () => {
                   for="exampleInputPassword1"
                   class="form-label inline-block mb-2 text-gray-700"
                 >
-                  Consumer Number
+                  ഉപഭോക്ത നമ്പർ
                 </label>
                 <input
                   required
@@ -148,7 +148,7 @@ const AddCustomer = () => {
                   for="exampleInputPassword1"
                   class="form-label inline-block mb-2 text-gray-700"
                 >
-                  Current Threshhold
+                  നിലവിലെ റീഡിങ്
                 </label>
                 <input
                   type="text"
@@ -179,7 +179,7 @@ const AddCustomer = () => {
                   for="exampleInputPassword1"
                   class="form-label inline-block mb-2 text-gray-700"
                 >
-                  Phone No:
+                  ഫോൺ നമ്പർ:
                 </label>
                 <input
                   type="number"
@@ -229,7 +229,7 @@ const AddCustomer = () => {
                 onClick={handleRegister}
                 disabled={loading}
               >
-                {loading ? "Submitting" : "Submit"}
+                {loading ? "സമർപ്പിക്കുന്നു..." : "സമർപ്പിക്കുക "}
               </button>
               <button
                 type="reset"
@@ -251,7 +251,7 @@ const AddCustomer = () => {
                 duration-150
                 ease-in-out"
               >
-                Clear
+                കളയുക
               </button>
             </form>
           </div>

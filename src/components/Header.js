@@ -11,15 +11,23 @@ useEffect(()=>{
    },[language]);
 
 
-    return(
-    <header class="text-gray-600 body-font bg-white">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-        <a class="mr-5 text-gray-900 hover:text-gray-900" id={props.item1_id}>
-          {props.item1}
-        </a>
-        <button class="mr-5 text-gray-900 hover:text-gray-900" onClick={props.item2Click}>{props.item2}</button>
-        {/* <button
+    return (
+      <header class="text-gray-600 body-font bg-white">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+            <a
+              class="mr-5 text-gray-900 hover:text-gray-900 font-bold"
+              id={props.item1_id}
+            >
+              {props.item1}
+            </a>
+            <button
+              class="mr-5 text-gray-900 hover:text-gray-900 font-bold"
+              onClick={props.item2Click}
+            >
+              {props.item2}
+            </button>
+            {/* <button
           id="dropdownDefault"
           data-dropdown-toggle="dropdown"
           class="text-white bg-gray-900 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
@@ -42,7 +50,7 @@ useEffect(()=>{
           </svg>
         </button> */}
 
-        {/* <div
+            {/* <div
           id="dropdown"
           class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700"
         >
@@ -84,23 +92,28 @@ useEffect(()=>{
             </li>
           </ul>
         </div> */}
-      </nav>
-      <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
-        <img
-        src={authority}
-        class="rounded-lg w-10"
-        alt="Avatar"
-      />
-        <span class="ml-3 text-xl">{props.waterauthority}</span>
-      </a>
-      <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-        <button class="mr-5 text-gray-900 hover:text-gray-900" onClick={props.item3Click}>{props.item3}</button>
-        <button class="mr-5 text-gray-900 hover:text-gray-900" onClick={props.item4Click}>{props.item4}</button>
-      </div>
-    </div>
-  </header>
-  
-  );
+          </nav>
+          <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+            <img src={authority} class="rounded-lg w-10" alt="Avatar" />
+            <span class="ml-3 text-xl font-bold">{props.waterauthority}</span>
+          </a>
+          <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+            <button
+              class="mr-5 text-gray-900 hover:text-gray-900 font-bold"
+              onClick={props.item3Click}
+            >
+              {props.item3}
+            </button>
+            <button
+              class="mr-5 text-gray-900 hover:text-gray-900 font-bold"
+              onClick={props.item4Click}
+            >
+              {props.item4}
+            </button>
+          </div>
+        </div>
+      </header>
+    );
 };
 
 export default Header;
