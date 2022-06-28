@@ -92,86 +92,95 @@ const signOut=()=>{
 })
 };
    return (
-    <div>
-      <Header item1="Home" item2="Contact" item3="Previous Bill" item4="Sign Out" item4Click={signOut}/>
-      <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
-        <h1 className="text-4xl font-Poppins font-medium">
-          Welcome {username}
-        </h1>
+     <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
+       <Header
+         item1="Home"
+         item2="Contact"
+         item3="Previous Bill"
+         item4="Sign Out"
+         item4Click={signOut}
+       />
+       <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
+         <h1 className="text-4xl font-Poppins font-medium text-white">
+           Welcome {username}
+         </h1>
 
-        <div className="w-full mt-10 p-10 bg-gray-300 rounded">
-          <div className="font-Poppins flex justify-center text-lg gap-x-5">
-            <button type='submit'
-              className={`rounded-full border-black font-semibold py-1 px-1 w-56 ${
-                screen === 0 ? "bg-white" : "border"
-              }`}
-              onClick={() => {
-                setScreen(0);
-              }}
-            >
-              Bill Due
-            </button>
-            <button
-              className={`rounded-full border-black font-semibold py-3 px-2 w-56 ${
-                screen === 1 ? "bg-white" : "border"
-              }`}
-              onClick={() => {
-                setScreen(1);
-              }}
-            >
-              Present Consumption
-            </button>
-          </div>
+         <div className="w-full mt-10 p-10 bg-white rounded">
+           <div className="font-Poppins flex justify-center text-lg gap-x-5">
+             <button
+               type="submit"
+               className={`rounded-full border-black font-semibold py-1 px-1 w-56 ${
+                 screen === 0
+                   ? "bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600"
+                   : "border"
+               }`}
+               onClick={() => {
+                 setScreen(0);
+               }}
+             >
+               Bill Due
+             </button>
+             <button
+               className={`rounded-full border-black font-semibold py-3 px-2 w-56 ${
+                 screen === 1
+                   ? "bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600"
+                   : "border"
+               }`}
+               onClick={() => {
+                 setScreen(1);
+               }}
+             >
+               Present Consumption
+             </button>
+           </div>
 
-          <div className="mt-10 text-center font-Poppins">
-            {screen === 0 ? (
-              <div className="flex flex-col items-center">
-                <h2 className="text-xl max-w-md">
-                  You have to pay outstanding amount for the month of May
-                </h2>
+           <div className="mt-10 text-center font-Poppins">
+             {screen === 0 ? (
+               <div className="flex flex-col items-center">
+                 <h2 className="text-xl max-w-md">
+                   You have to pay outstanding amount for the month of May
+                 </h2>
 
-                <h3 className="text-5xl mt-5 font-medium">
-                  <span className="font-sans">₹</span>
-                  {price}
-                </h3>
+                 <h3 className="text-5xl mt-5 font-medium">
+                   <span className="font-sans">₹</span>
+                   {price}
+                 </h3>
 
-                <button
-                  className="rounded-full mt-10 bg-black text-white text-lg font-bold py-3 w-56"
-                  onClick={handlePayment}
-                  type="button"
-                >
-                  {payment ? "Paying..." : "Pay Now"}
-                </button>
-              </div>
-            ) : (
-              <></>
-            )}
+                 <button
+                   className="rounded-full mt-10 bg-black text-white text-lg font-bold py-3 w-56"
+                   onClick={handlePayment}
+                   type="button"
+                 >
+                   {payment ? "Paying..." : "Pay Now"}
+                 </button>
+               </div>
+             ) : (
+               <></>
+             )}
 
-            {screen === 1 ? (
-              <div className="flex flex-col items-center">
-                <h2 className="text-xl">
-                  Your current water consumption for the Month
-                </h2>
-                <h2 className="text-xl">
-                  ({lastupdate})
-                </h2>
+             {screen === 1 ? (
+               <div className="flex flex-col items-center">
+                 <h2 className="text-xl">
+                   Your current water consumption for the Month
+                 </h2>
+                 <h2 className="text-xl">({lastupdate})</h2>
 
-                <h3 className="text-5xl mt-3 font-medium">{water}L</h3>
+                 <h3 className="text-5xl mt-3 font-medium">{water}L</h3>
 
-                <h2 className="text-xl mt-10">Which translates to</h2>
+                 <h2 className="text-xl mt-10">Which translates to</h2>
 
-                <h3 className="text-5xl mt-3 font-medium">
-                  <span className="font-sans">₹</span>
-                  {monthlyPrice}
-                </h3>
-              </div>
-            ) : (
-              <></>
-            )}
-          </div>
-        </div>
-      </div>
-      </div>
-    );
+                 <h3 className="text-5xl mt-3 font-medium">
+                   <span className="font-sans">₹</span>
+                   {monthlyPrice}
+                 </h3>
+               </div>
+             ) : (
+               <></>
+             )}
+           </div>
+         </div>
+       </div>
+     </div>
+   );
 }
 export default Home;
