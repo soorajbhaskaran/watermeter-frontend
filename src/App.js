@@ -6,6 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Footer from "./components/Footer";
+import ChangePassword from "./pages/ChangePassword";
 
 
 import Login from "./pages/Login";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/admin-home" element={<AdminHome />} />
           <Route path='/admin-home/updateprice' element={<UpdatePrice/>}/>
           <Route path='/admin-home/addcustomer' element={<AddCustomer/>}/>
+          <Route path='/home/changepassword' element={<ChangePassword/>}/>
           
           <Route path='/home/prevbill' element={<PreviousBill/>}/>
         </Routes>

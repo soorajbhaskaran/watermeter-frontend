@@ -65,7 +65,7 @@ const AdminHome = (props) => {
             },
           })
           .then((res) => {
-            navigate("/login");
+            navigate("/admin-login");
             alert("You have successfully logged out");
           })
           .catch((err) => {
