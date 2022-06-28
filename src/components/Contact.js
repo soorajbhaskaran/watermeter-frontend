@@ -29,7 +29,7 @@ const Contact=()=>(
           <div class="p-2 w-full">
             <button class="flex mx-auto text-white bg-gray-900 border-0 py-2 px-8 focus:outline-none hover:bg-gray-300 rounded-full text-lg">Send</button>
           </div>
-          <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+          {/* <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
             <a class="text-gray-600">keralawaterauthority@gmail.com</a>
             <p class="leading-normal my-5">Phone:
               +91 471 2738300
@@ -57,7 +57,7 @@ const Contact=()=>(
                 </svg>
               </a>
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

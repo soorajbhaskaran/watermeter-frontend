@@ -66,43 +66,62 @@ const handleSubmit = () => {
          </div>
       </div>
 
-      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-         <div class="flex items-center justify-center min-h-screen">
-            <div class="px-8 py-20 mt-4 text-left bg-white shadow-lg">
-               <h3 class="text-2xl font-bold text-center">{props.logText}</h3>
-               <form action="">
+          <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+            <div class="flex items-center justify-center min-h-screen">
+              <div class="px-8 py-20 mt-4 text-left bg-white shadow-lg rounded">
+                <h3 class="text-2xl font-bold text-center">{props.logText}</h3>
+                <form action="">
                   <div class="mt-4">
-                     <div>
-                        <label class="block" for="email">Consumer Number</label>
-                        <input type="text" placeholder="Consumer Number" value={consumer}
-                           class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                           required name="consumer"
-              onChange={(event)=>{
-                setConsumer(event.target.value);
-              }}/>
-                     </div>
-                     <div class="mt-4">
-                        <label class="block">Password</label>
-                        <input type="password" placeholder="Password" value={password}
-                           class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                           required name="password"
-              onChange={(event)=>{
-                setPassword(event.target.value);
-              }}/>
-                     </div>
-                     <div class="flex items-baseline justify-between">
-                        <button class="px-8 py-2 mt-4 text-white bg-gradient-to-r from-red-500 to-blue-400  rounded-full hover:bg-gray-200" type='button'  onClick={handleSubmit}
-          disabled={loading}>{loading ? "Loading...": "Login"}</button>
-                        <a href="#" class="text-sm text-gray-600 hover:underline">Forgot password?</a>
-                     </div>
+                    <div>
+                      <label class="block" for="email">
+                        Consumer Number
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Consumer Number"
+                        value={consumer}
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                        required
+                        name="consumer"
+                        onChange={(event) => {
+                          setConsumer(event.target.value);
+                        }}
+                      />
+                    </div>
+                    <div class="mt-4">
+                      <label class="block">Password</label>
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
+                        required
+                        name="password"
+                        onChange={(event) => {
+                          setPassword(event.target.value);
+                        }}
+                      />
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                      <button
+                        class="px-8 py-2 mt-4 text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 rounded-full hover:bg-gray-200"
+                        type="button"
+                        onClick={handleSubmit}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Login"}
+                      </button>
+                      <a href="#" class="text-sm text-gray-600 hover:underline">
+                        Forgot password?
+                      </a>
+                    </div>
                   </div>
-               </form>
+                </form>
+              </div>
             </div>
-         </div>
-      </div>
-      
-   </div>
-</section>
+          </div>
+        </div>
 
-)};
+      </section>
+    );};
 export default LoginPage;
