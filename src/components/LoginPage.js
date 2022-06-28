@@ -49,6 +49,7 @@ const handleSubmit = () => {
   }).catch(err => {
     setLoading(false);
     setIsError(true);
+    alert("Unauthorized Access")
     console.log(err);
   });
 }
