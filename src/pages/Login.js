@@ -17,8 +17,9 @@ const Login = (props) => {
   return (
     <div>
       <Header
-        item1=""
-        item2={language ? "ബന്ധപ്പെടുക" : "Contact"}
+        item1={language ? "ബന്ധപ്പെടുക" : "Contact"}
+        item1_id = "contact"
+        item2=""
         item3={language ? "Switch Language" : "ഭാഷ മാറ്റുക "}
         item4=""
         item3Click={changeLanguage}
