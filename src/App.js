@@ -16,10 +16,18 @@ import UpdatePrice from './pages/UpdatePrice';
 import PreviousBill from './pages/PreviousBill';
 
 
+
+
+//importing components & pages
+import Contact from "./components/Contact";
+import Header from "./components/Header";
+import LoginPage from "./components/LoginPage";
+import Tile from "./components/Tile";
+
 function App() {
   return (
     <Router>
-      <div>
+    <div>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
