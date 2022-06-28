@@ -117,9 +117,9 @@ const handleSubmit = () => {
                       >
                         {loading ? "Loading..." : "Login"}
                       </button>
-                      <a href="#" class="text-sm text-gray-600 hover:underline">
+                      {/* <a href="#" class="text-sm text-gray-600 hover:underline">
                         Forgot password?
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </form>
