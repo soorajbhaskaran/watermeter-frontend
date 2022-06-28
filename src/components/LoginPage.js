@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useState} from 'react';
+import { useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import url from '../axios/url';
 
@@ -14,6 +14,19 @@ const [isError, setIsError] = useState(false);
 const [resData, setData] = useState("");
 const navigate=useNavigate();
 
+///getting language attribute
+//const [language,setLanguage]=useState(false)
+
+const getLanguage = ()=> localStorage.getItem("language");
+useEffect(() => {
+    const storage = (event) => {
+
+    };
+    console.log(localStorage.getItem("language"));
+    window.addEventListener("storage", storage);
+    return ()=> window.removeEventListener("storage", storage)
+},[localStorage.getItem("language")]);
+  
 
 //Handling Post Request
 const handleSubmit = () => {
@@ -40,18 +53,16 @@ const handleSubmit = () => {
 
 //JSX Code
     return(
-    <section class="text-gray-600 body-font bg-gray-100">
+    <section class="text-gray-600 body-font bg-gradient-to-l from-gray-600">
    <div class="container mx-auto flex px-5 py-0 md:flex-row flex-col items-center">
       <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-         <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Kerala Water Authority Welcomes You..
+         <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{localStorage.getItem("language") ? "കേരള വാട്ടർ അതോറിറ്റി നിങ്ങളെ സ്വാഗതം ചെയ്യുന്നു..":"Kerala Water Authority Welcomes You.."}
          </h1>
-         <p>
-            Kerala Water Authority is an autonomous authority established
-            for the development and regulation of water supply 
-            and waste water collection and disposal in the state of Kerala, India.
+         <p>{localStorage.getItem("language") ? "കേരള വാട്ടർ അതോറിറ്റി സ്ഥാപിതമായ ഒരു സ്വയംഭരണ അതോറിറ്റിയാണ് ജലവിതരണത്തിന്റെ വികസനത്തിനും നിയന്ത്രണത്തിനും കൂടാതെ ഇന്ത്യയിലെ കേരള സംസ്ഥാനത്തിലെ മലിനജല ശേഖരണവും നിർമാർജനവും.":
+            "Kerala Water Authority is an autonomous authority established for the development and regulation of water supply and waste water collection and disposal in the state of Kerala, India."}
          </p>
          <div class="flex justify-center py-10">
-            <button class="inline-flex text-white bg-gray-900 border-0 py-2 px-10 focus:outline-none hover:bg-red-600 rounded-full text-lg">Contact Us</button>
+            <button class="inline-flex text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  border-0 py-2 px-10 focus:outline-none hover:bg-red-600 rounded-full text-lg">Contact Us</button>
          </div>
       </div>
 
@@ -80,7 +91,7 @@ const handleSubmit = () => {
               }}/>
                      </div>
                      <div class="flex items-baseline justify-between">
-                        <button class="px-8 py-2 mt-4 text-white bg-gray-900 rounded-full hover:bg-gray-200" type='button'  onClick={handleSubmit}
+                        <button class="px-8 py-2 mt-4 text-white bg-gradient-to-r from-red-500 to-blue-400  rounded-full hover:bg-gray-200" type='button'  onClick={handleSubmit}
           disabled={loading}>{loading ? "Loading...": "Login"}</button>
                         <a href="#" class="text-sm text-gray-600 hover:underline">Forgot password?</a>
                      </div>
