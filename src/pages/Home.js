@@ -105,6 +105,7 @@ const navigatePrev=()=>{
          item3Click={navigatePrev}
          item4="Sign Out"
          item4Click={signOut}
+         waterauthority="കേരള വാട്ടർ അതോറിറ്റി" 
        />
        <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
          <h1 className="text-4xl font-Poppins font-medium text-white">
@@ -144,7 +145,8 @@ const navigatePrev=()=>{
              {screen === 0 ? (
                <div className="flex flex-col items-center">
                  <h2 className="text-xl max-w-md">
-                   {"You have to pay outstanding amount for the month of "+month} 
+                   {"You have to pay outstanding amount for the month of " +
+                     month}
                  </h2>
 
                  <h3 className="text-5xl mt-5 font-medium">
