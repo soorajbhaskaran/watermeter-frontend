@@ -84,7 +84,6 @@ const AdminHome = (props) => {
     return (
       <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
         <Header
-          item1="ഹോം"
           item2="പുതിയ ഉപഭോക്താവ് "
           item2Click={navigateCustomer}
           item3="തുക പുതുക്കുക"

@@ -39,24 +39,16 @@ const ChangePassword=()=>{
         }
       }
         
-
-const navigateCustomer = () => {
-  navigate("/admin-home/addcustomer");
-};
-const navigatePrice = () => {
-  navigate("/admin-home/updateprice");
-};
-       
+const navigateHome=()=>{
+    navigate("/home");
+}       
     
 
     return (
       <div>
         <Header
           item1="ഹോം"
-          item2="പുതിയ ഉപഭോക്താവ് "
-          item2Click={navigateCustomer}
-          item3="തുക പുതുക്കുക"
-          item3Click={navigatePrice}
+          item1Click={navigateHome}
           item4=""
           item4Click=""
           waterauthority="കേരള വാട്ടർ അതോറിറ്റി"
@@ -94,7 +86,7 @@ const navigatePrice = () => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
-                      placeholder="Add current password"
+                      placeholder="പഴയ പാസ്സ്‌വേർഡ്"
                       value={oldPassword}
                       onChange={(event) => {
                         setOldPassword(event.target.value);

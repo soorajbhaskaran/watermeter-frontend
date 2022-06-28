@@ -12,7 +12,7 @@ const AdminLogin = (props) => {
           item3=""
           item4="ബന്ധപെടുക "
         />
-        <LoginPage logText="ഉദ്യോഗസ്ഥ ലോഗിൻ" page="/admin-home" />
+        <LoginPage logText="ഉദ്യോഗസ്ഥ ലോഗിൻ" page="/admin-home" admId="അഡ്മിൻ ഐഡി" />
       </div>
     );
 }

@@ -29,6 +29,7 @@ const Login = (props) => {
         logText= "അക്കൗണ്ടിൽ ലോഗിൻ ചെയ്യുക!" 
         page="/home"
         language={language}
+        admId="ഉപഭോക്തൃ നമ്പർ"
       />
       <Contact />
     </div>
