@@ -35,7 +35,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-home" element={<AdminHome />} />
-          <Route path='/admin-updateprice' element={<UpdatePrice/>}/>
+          <Route path='/admin-home/updateprice' element={<UpdatePrice/>}/>
           <Route path='/admin-home/addcustomer' element={<AddCustomer/>}/>
           
           <Route path='/home/prevbill' element={<PreviousBill/>}/>

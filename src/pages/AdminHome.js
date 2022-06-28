@@ -76,6 +76,9 @@ const AdminHome = (props) => {
       const navigateCustomer=()=>{
         navigate("/admin-home/addcustomer")
       }
+      const navigatePrice=()=>{
+        navigate("/admin-home/updateprice")
+      }
    
 
     return (
@@ -85,6 +88,7 @@ const AdminHome = (props) => {
           item2="Add Customer"
           item2Click={navigateCustomer}
           item3="Update Price"
+          item3Click={navigatePrice}
           item4="Sign Out"
           item4Click={signOut}
         />
