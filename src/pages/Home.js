@@ -92,8 +92,8 @@ const signOut=()=>{
    return (
      <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
        <Header
-         item1="Home"
-         item2="Contact"
+         item1=""
+         item2=""
          item3="Previous Bill"
          item4="Sign Out"
          item4Click={signOut}
