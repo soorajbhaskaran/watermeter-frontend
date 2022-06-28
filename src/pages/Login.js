@@ -15,11 +15,26 @@ const changeLanguage=()=>{
   setLanguage(newLanguage);
   localStorage.setItem("language",language);
 }
-return(
+return (
   <div>
-  <Header item1={language ? "ഹോം ബാർ":"Home"} item2="Contact" item3="Switch Language" item4="Contact" item3Click={changeLanguage} waterauthority={language ?"കേരള വാട്ടർ അതോറിറ്റി":"Kerala Water Authority"}/>
-  <LoginPage logText="Login in into your account" page="/home" language={language}/>
-  <Contact/>
+    <Header
+      item1=""
+      item2={language ? "ബന്ധപ്പെടുക" : "Contact"}
+      item3={language ? "Switch Language" : "ഭാഷ മാറ്റുക "}
+      item4=""
+      item3Click={changeLanguage}
+      waterauthority={
+        language ? "കേരള വാട്ടർ അതോറിറ്റി" : "Kerala Water Authority"
+      }
+    />
+    <LoginPage
+      logText={
+        language ? "അക്കൗണ്ടിൽ ലോഗിൻ ചെയ്യുക!" : "Login in into your account"
+      }
+      page="/home"
+      language={language}
+    />
+    <Contact />
   </div>
 );
 
