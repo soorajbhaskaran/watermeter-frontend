@@ -4,6 +4,7 @@ import { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import url from '../axios/url';
 
+
 const LoginPage=(props)=>{
 
 //State Variables    
@@ -52,9 +53,11 @@ const handleSubmit = () => {
               collection and disposal in the state of Kerala, India.
             </p>
             <div class="flex justify-center py-10">
-              <button class="inline-flex text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 border-0 py-2 px-10 focus:outline-none hover:bg-red-600 rounded-full text-lg">
-                Contact Us
-              </button>
+              <a href='#footer'>
+                <button class="inline-flex text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 border-0 py-2 px-10 focus:outline-none hover:bg-red-600 rounded-full text-lg">
+                  Contact Us
+                </button>
+              </a>
             </div>
           </div>
 
@@ -113,7 +116,6 @@ const handleSubmit = () => {
             </div>
           </div>
         </div>
-
       </section>
     );};
 export default LoginPage;
