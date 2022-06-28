@@ -84,12 +84,12 @@ const AdminHome = (props) => {
     return (
       <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
         <Header
-          item1="Home"
-          item2="Add Customer"
+          item1="ഹോം"
+          item2="പുതിയ ഉപഭോക്താവ് "
           item2Click={navigateCustomer}
-          item3="Update Price"
+          item3="തുക പുതുക്കുക"
           item3Click={navigatePrice}
-          item4="Sign Out"
+          item4="സൈൻ ഔട്ട്"
           item4Click={signOut}
         />
 
@@ -132,7 +132,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4 border-r-4"
                       >
                         <h2 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Co.no
+                          ക്രമ. നമ്പർ
                         </h2>
                       </th>
                       <th
@@ -140,7 +140,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4 border-r-4"
                       >
                         <h3 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Consumer ID
+                          ഉപഭോക്ത നമ്പർ
                         </h3>
                       </th>
                       <th
@@ -148,7 +148,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4 border-r-4"
                       >
                         <h3 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Current Consumption
+                          നിലവിലെ ഉപഭോഗം (L)
                         </h3>
                       </th>
                       <th
@@ -156,7 +156,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4 border-r-4"
                       >
                         <h3 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Current Reading
+                          മീറ്റർ റീഡിങ്
                         </h3>
                       </th>
                       <th
@@ -164,7 +164,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4 border-r-4"
                       >
                         <h3 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Cost
+                          തുക
                         </h3>
                       </th>
                       <th
@@ -172,7 +172,7 @@ const AdminHome = (props) => {
                         class="text-base font-medium text-gray-900 px-6 py-4"
                       >
                         <h3 class="border-1 rounded-full border-gray-900 py-2 px-2 bg-white">
-                          Last Updated At
+                          അവസാന അപ്ഡേഷൻ
                         </h3>
                       </th>
                     </tr>

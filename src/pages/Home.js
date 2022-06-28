@@ -103,25 +103,25 @@ const navigatePrev=()=>{
    return (
      <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
        <Header
-         item1="Change Password"
+         item1="പാസ്സ്‌വേർഡ് മാറ്റുക"
          item1Click={navigatePassword}
          item2=""
-         item3="Previous Bill"
+         item3="മുൻകാല ബിൽ"
          item3Click={navigatePrev}
-         item4="Sign Out"
+         item4="സൈൻ ഔട്ട് "
          item4Click={signOut}
-         waterauthority="കേരള വാട്ടർ അതോറിറ്റി" 
+         waterauthority="കേരള വാട്ടർ അതോറിറ്റി"
        />
        <div className="flex-1 pb-20 flex flex-col items-center justify-center py-5 px-5 md:px-10 lg:px-20">
          <h1 className="text-4xl font-Poppins font-medium text-white">
-           Welcome {username}
+           സ്വാഗതം {username}
          </h1>
 
          <div className="w-full mt-10 p-10 bg-white rounded">
            <div className="font-Poppins flex justify-center text-lg gap-x-5">
              <button
                type="submit"
-               className={`rounded-full border-black font-semibold py-1 px-1 w-56 ${
+               className={`rounded-lg border-black font-semibold py-1 px-1 w-56 ${
                  screen === 0
                    ? "bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600"
                    : "border"
@@ -130,10 +130,10 @@ const navigatePrev=()=>{
                  setScreen(0);
                }}
              >
-               Bill Due
+               കുടിശിക
              </button>
              <button
-               className={`rounded-full border-black font-semibold py-3 px-2 w-56 ${
+               className={`rounded-lg border-black font-semibold py-3 px-2 w-56 ${
                  screen === 1
                    ? "bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600"
                    : "border"
@@ -142,7 +142,7 @@ const navigatePrev=()=>{
                  setScreen(1);
                }}
              >
-               Present Consumption
+               നിലവിലെ ഉപഭോഗം
              </button>
            </div>
 
@@ -150,8 +150,7 @@ const navigatePrev=()=>{
              {screen === 0 ? (
                <div className="flex flex-col items-center">
                  <h2 className="text-xl max-w-md">
-                   {"You have to pay outstanding amount for the month of " +
-                     month}
+                   {month + "  ൽ നിങ്ങൾ അടക്കേണ്ട തുക"}
                  </h2>
 
                  <h3 className="text-5xl mt-5 font-medium">
@@ -164,7 +163,7 @@ const navigatePrev=()=>{
                    onClick={handlePayment}
                    type="button"
                  >
-                   {payment ? "Paying..." : "Pay Now"}
+                   {payment ? "അടക്കുന്നു..." : "അടക്കുക "}
                  </button>
                </div>
              ) : (
@@ -173,14 +172,12 @@ const navigatePrev=()=>{
 
              {screen === 1 ? (
                <div className="flex flex-col items-center">
-                 <h2 className="text-xl">
-                   Your current water consumption for the Month
-                 </h2>
+                 <h2 className="text-xl">പ്രസ്തുത മാസത്തിലെ ജലോപഭോഗം</h2>
                  <h2 className="text-xl">({lastupdate})</h2>
 
                  <h3 className="text-5xl mt-3 font-medium">{water}L</h3>
 
-                 <h2 className="text-xl mt-10">Which translates to</h2>
+                 <h2 className="text-xl mt-10">അതായത് </h2>
 
                  <h3 className="text-5xl mt-3 font-medium">
                    <span className="font-sans">₹</span>
