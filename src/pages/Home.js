@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import { useNavigate } from 'react-router';
 import url from '../axios/url';
 
-const Home=()=>{
+const Home=(props)=>{
     const [screen, setScreen] = useState(0);
     const [token,setToken] = useState("");
     const [payment, setPayment] = useState(false);
@@ -14,6 +14,7 @@ const Home=()=>{
     const [lastupdate,setLastupdate] = useState("");
     const [water,setWater] = useState(0);
     const [monthlyPrice,setMonthlyPrice] = useState(0);
+    const [month,setMonth]=useState("")
     const navigate=useNavigate();
 
 
@@ -35,6 +36,8 @@ const Home=()=>{
           })
           .then((res) => {
             if (res.data.bill.status === "unpaid") {
+              console.log(res);
+              setMonth(res.data.bill.monthYear)
               setPrice(res.data.bill.consumedPrice);
               console.log(res.data.bill.consumedPrice);
             }
@@ -89,12 +92,17 @@ const signOut=()=>{
   console.log(err)
 })
 };
+
+const navigatePrev=()=>{
+  navigate("/home/prevbill")
+}
    return (
      <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
        <Header
          item1=""
          item2=""
          item3="Previous Bill"
+         item3Click={navigatePrev}
          item4="Sign Out"
          item4Click={signOut}
        />
@@ -136,7 +144,7 @@ const signOut=()=>{
              {screen === 0 ? (
                <div className="flex flex-col items-center">
                  <h2 className="text-xl max-w-md">
-                   You have to pay outstanding amount for the month of May
+                   {"You have to pay outstanding amount for the month of "+month} 
                  </h2>
 
                  <h3 className="text-5xl mt-5 font-medium">

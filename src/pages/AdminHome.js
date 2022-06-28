@@ -72,13 +72,18 @@ const AdminHome = (props) => {
             console.log(err);
           });
       };
+
+      const navigateCustomer=()=>{
+        navigate("/admin-home/addcustomer")
+      }
    
 
     return (
       <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
         <Header
           item1="Home"
-          item2=""
+          item2="Add Customer"
+          item2Click={navigateCustomer}
           item3="Update Price"
           item4="Sign Out"
           item4Click={signOut}
@@ -177,7 +182,7 @@ const AdminHome = (props) => {
                       currentConsumption={each["currentWaterConsumption"]}
                       reading={each["currentMonthlyPrice"]}
                       currentPrice={each["currentMeterReading"]}
-                      updatedAt={each["updatedAt"]}
+                      updatedAt={each["lastUpdate"]}
                     />
                   ))}
                 </table>

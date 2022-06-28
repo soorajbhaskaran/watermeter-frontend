@@ -18,7 +18,7 @@ useEffect(()=>{
         <a class="mr-5 text-gray-900 hover:text-gray-900" id={props.item1_href}>
           {props.item1}
         </a>
-        <a class="mr-5 text-gray-900 hover:text-gray-900">{props.item2}</a>
+        <button class="mr-5 text-gray-900 hover:text-gray-900" onClick={props.item2Click}>{props.item2}</button>
         {/* <button
           id="dropdownDefault"
           data-dropdown-toggle="dropdown"

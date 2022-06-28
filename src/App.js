@@ -14,6 +14,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminHome from "./pages/AdminHome";
 import UpdatePrice from './pages/UpdatePrice';
 import PreviousBill from './pages/PreviousBill';
+import AddCustomer from "./pages/AddCustomer";
 
 
 
@@ -35,6 +36,8 @@ function App() {
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-home" element={<AdminHome />} />
           <Route path='/admin-updateprice' element={<UpdatePrice/>}/>
+          <Route path='/admin-home/addcustomer' element={<AddCustomer/>}/>
+          
           <Route path='/home/prevbill' element={<PreviousBill/>}/>
         </Routes>
       </div>
