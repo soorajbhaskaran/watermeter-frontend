@@ -15,9 +15,9 @@ useEffect(()=>{
     <header class="text-gray-600 body-font bg-white">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-        <a class="mr-5 text-gray-900 hover:text-gray-900" id={props.item1_href}>
+        <button class="mr-5 text-gray-900 hover:text-gray-900" id={props.item1_href} onClick={props.item1Click}>
           {props.item1}
-        </a>
+        </button>
         <button class="mr-5 text-gray-900 hover:text-gray-900" onClick={props.item2Click}>{props.item2}</button>
         {/* <button
           id="dropdownDefault"

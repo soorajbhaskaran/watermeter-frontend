@@ -93,13 +93,18 @@ const signOut=()=>{
 })
 };
 
+const navigatePassword=()=>{
+  navigate("/home/changepassword")
+}
+
 const navigatePrev=()=>{
   navigate("/home/prevbill")
 }
    return (
      <div class="bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800 h-screen">
        <Header
-         item1=""
+         item1="Change Password"
+         item1Click={navigatePassword}
          item2=""
          item3="Previous Bill"
          item3Click={navigatePrev}
