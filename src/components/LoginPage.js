@@ -42,6 +42,7 @@ const handleSubmit = () => {
     setPassword('');
     setLoading(false);
     localStorage.setItem("dataToken",res.data.token);
+    localStorage.setItem("dataConsumer",res.data.user.consumerNumber);
     localStorage.setItem("dataUser",res.data.user.name);
     navigate(props.page);
   }).catch(err => {

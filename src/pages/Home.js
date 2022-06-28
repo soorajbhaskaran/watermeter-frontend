@@ -53,7 +53,7 @@ const Home=()=>{
             console.log(res);
             setWater(res.data.currentWaterConsumption);
             setMonthlyPrice(res.data.currentMonthlyPrice);
-            setLastupdate(res.data.updatedAt);
+            setLastupdate(res.data.lastUpdate);
           })
           .catch((err) => {
             console.log(err);
@@ -66,10 +66,8 @@ const Home=()=>{
     const handlePayment = () => {
       setPayment(true);
       console.log(token);
-      axios.post(url+"/user/paybill", {
-        headers: {
-          Authorization : `Bearer ${token}`
-        }
+      const data={consumerNumber:localStorage.getItem("dataConsumer")}
+      axios.post(url+"/user/paybill",data, {
       }).then((res) => {
         console.log(res.data);
         alert("Payment Updated")
