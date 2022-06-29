@@ -1,66 +1,69 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import url from "../axios/url"; 
+import url from "../axios/url";
 import { useNavigate } from "react-router";
 import Header from "../components/Header";
 
 const UpdatePrice = () => {
-  const [quantity,setQuantity]=useState(0);
-  const [price,setPrice]=useState(0);
-  const [loading,setLoading]=useState(false);
-  const [token,setToken]=useState();
-    const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState();
+  const navigate = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
     setToken(localStorage.getItem("dataToken"));
     console.log(token);
-   },[]);
+  }, []);
 
-  const updatePrice=()=>{
+  const updatePrice = () => {
     setLoading(true);
-    const data={
-      role:"admin",
-      currentPrice:price,
-      quantity:quantity
-    }
-    axios.post(url+"/user/changerate",data,{
-      headers: {
-        Authorization: "Bearers " + token,
-      },
-    }).then(res=>{
-      setLoading(false);
-      alert("Price Updated")
-    }).catch(err=>{
-      setLoading(false)
-      console.log(err)
-    })
-  }
+    const data = {
+      role: "admin",
+      currentPrice: price,
+      quantity: quantity,
+    };
+    axios
+      .post(url + "/user/changerate", data, {
+        headers: {
+          Authorization: "Bearers " + token,
+        },
+      })
+      .then((res) => {
+        setLoading(false);
+        alert("Price Updated");
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  };
 
-        const signOut = () => {
-          axios
-            .get(url + "/user/logout", {
-              headers: {
-                Authorization: "Bearers " + token,
-              },
-            })
-            .then((res) => {
-              navigate("/login");
-              alert("You have successfully logged out");
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        };
+  const signOut = () => {
+    axios
+      .get(url + "/user/logout", {
+        headers: {
+          Authorization: "Bearers " + token,
+        },
+      })
+      .then((res) => {
+        navigate("/login");
+        alert("You have successfully logged out");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-        const navigateCustomer = () => {
-          navigate("/admin-home/addcustomer");
-        };
-        const navigatePrice = () => {
-          navigate("/admin-home/updateprice");
-        };
-        const navigateHome=()=>{
-          navigate("/admin-home")
-        }
+  const navigateCustomer = () => {
+    navigate("/admin-home/addcustomer");
+  };
+  const navigatePrice = () => {
+    navigate("/admin-home/updateprice");
+  };
+  const navigateHome = () => {
+    navigate("/admin-home");
+  };
   return (
     <div class="h-screen bg-gradient-to-r from-zinc-900 via-sky-900 to-zinc-800">
       <Header

@@ -3,9 +3,11 @@ import Header from "../components/Header";
 import LoginPage from "../components/LoginPage";
 import Contact from "../components/Contact";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Login = (props) => {
   const [language, setLanguage] = useState(false);
+  const navigate = useNavigate();
 
   localStorage.setItem("language", language);
   //Switching between language
@@ -14,6 +16,10 @@ const Login = (props) => {
     setLanguage(newLanguage);
     localStorage.setItem("language", language);
   };
+
+  const navigateAdmin = () => {
+    navigate("/admin-login")
+  }
   return (
     <div>
       <Header
@@ -21,8 +27,8 @@ const Login = (props) => {
         item1_id=""
         item2=""
         item3=""
-        item4=""
-        item3Click={changeLanguage}
+        item4="ഉദ്യോഗസ്ഥ ലോഗിൻ"
+        item4Click = {navigateAdmin}
         waterauthority="കേരള വാട്ടർ അതോറിറ്റി" 
       />
       <LoginPage
