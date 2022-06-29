@@ -18,14 +18,6 @@ import PreviousBill from './pages/PreviousBill';
 import AddCustomer from "./pages/AddCustomer";
 
 
-
-
-//importing components & pages
-import Contact from "./components/Contact";
-import Header from "./components/Header";
-import LoginPage from "./components/LoginPage";
-import Tile from "./components/Tile";
-
 function App() {
   return (
     <Router>

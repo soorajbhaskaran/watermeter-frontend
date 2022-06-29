@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useState,useEffect} from 'react';
+import { useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import url from '../axios/url';
 
@@ -11,23 +11,12 @@ const LoginPage=(props)=>{
 const [consumer,setConsumer]=useState("")
 const [password,setPassword]=useState("")
 const [loading, setLoading] = useState(false);
-const [isError, setIsError] = useState(false);
-const [resData, setData] = useState("");
+const [, setIsError] = useState(false);
+const [, setData] = useState("");
 const navigate=useNavigate();
 
 ///getting language attribute
 //const [language,setLanguage]=useState(false)
-
-const getLanguage = ()=> localStorage.getItem("language");
-useEffect(() => {
-    const storage = (event) => {
-
-    };
-    console.log(localStorage.getItem("language"));
-    window.addEventListener("storage", storage);
-    return ()=> window.removeEventListener("storage", storage)
-},[localStorage.getItem("language")]);
-  
 
 //Handling Post Request
 const handleSubmit = () => {

@@ -11,7 +11,7 @@ const AddCustomer = () => {
   const [threshold, setThreshold] = useState(0);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [token, setToken] = useState();
+  const [token, ] = useState();
 
   const handleRegister = () => {
     setLoading(true);

@@ -28,10 +28,10 @@ useEffect(()=>{
               {props.item2}
             </button>
           </nav>
-          <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+          <button class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
             <img src={authority} class="rounded-lg w-10" alt="Avatar" />
             <span class="ml-3 text-xl font-bold">{props.waterauthority}</span>
-          </a>
+          </button>
           <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
             <button
               class="mr-5 text-gray-900 hover:text-gray-900 font-bold"
